@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+  
+
+  <meta charset="utf-8">
+  <meta Text="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="static/main.css">
+
+
+
+
+<style>
+
+.button {
+  border: none;
+  color: white;
+  padding: 18px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 80px;
+  cursor: pointer;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+}
+
+.button1 {background-color: #0000cc;}
+.button2 {background-color: #0000cc;} /* Blue */
+
+html { scroll-behavior: smooth; }
+
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
+<#div2{       
+visibility: ;
+}
+
+
+
+.collapsible {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .collapsible:hover {
+  background-color: #ccc;
+}
+
+/* Style the collapsible content. Note: hidden by default */
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+
+toggle {
+  width: 100%;
+  float: none;
+  margin-right: 0;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+	<nav class="navbar navbar-expand-lg navbar-light bg-#60bde5">
+		<div class="navbar-nav mx-auto">
+		  <a class="nav-item nav-link" href="{{ url_for('index') }}">Home</b></a>
+		  <a class="nav-item nav-link" href="{{ url_for('timeline') }}">Timeline</a>
+		  <a class="nav-item nav-link" href="{{ url_for('previousdata') }}">Previous Data</a>
+		  <a class="nav-item nav-link" href="{{ url_for('currentdata') }}">Current Data</a>
+		  <a class="nav-item nav-link" href="{{ url_for('comparison') }}"><b>Comparison</b></a>
+		  <a class="nav-item nav-link" href="{{ url_for('interactivegraph') }}">Interactive Graph</a>
+		</div>
+	</nav>
+</div>
+
+<br>
+<h2 style = "text-align: center;">Compare</h2>
+<br>
+<br>
+<br>
+
+<form style = "text-align: center;" action="/comparison" method = "POST">
+		
+    <h4>Ticker Symbol 1 <input type = "text" name = "Stock1" maxlength="5" style="text-transform:uppercase" /></h4>
+	<h4>Ticker Symbol 2 <input type = "text" name = "Stock2" maxlength="5" style="text-transform:uppercase"/></h4>
+    <h4><input type = "submit" value = "Submit" /></h4>
+	
+</form>
+
+
+
+
+
+
+<br>
+<br>
+
+
+
+
+<div class="d-flex justify-content-center">
+	<div class="row">
+		<div class="col">
+			<div class="container rounded bg-white w-100"  style="border:1px solid black">
+
+				<h2 style="text-align:center"><b> {{ stocksym1 }} News Stories </b></h2>
+
+					<hr>
+				
+						<ol >
+						
+							<li> <a href={{ Links2[0] }} target="_blank" rel="noopener noreferrer"> {{ results1[0] }}</a> </li>
+							<li> <a href={{ Links2[1] }} target="_blank" rel="noopener noreferrer"> {{ results1[1] }}</a> </li>
+							<li> <a href={{ Links2[2] }} target="_blank" rel="noopener noreferrer"> {{ results1[2] }}</a> </li>
+							<li> <a href={{ Links2[3] }} target="_blank" rel="noopener noreferrer"> {{ results1[3] }}</a> </li>
+							<li> <a href={{ Links2[4] }} target="_blank" rel="noopener noreferrer"> {{ results1[4] }}</a> </li>
+							<li> <a href={{ Links2[5] }} target="_blank" rel="noopener noreferrer"> {{ results1[5] }}</a> </li>
+							<li> <a href={{ Links2[6] }} target="_blank" rel="noopener noreferrer"> {{ results1[6] }}</a> </li>
+							<li> <a href={{ Links2[7] }} target="_blank" rel="noopener noreferrer"> {{ results1[7] }}</a> </li>
+							<li> <a href={{ Links2[8] }} target="_blank" rel="noopener noreferrer"> {{ results1[8] }}</a> </li>
+							<li> <a href={{ Links2[9] }} target="_blank" rel="noopener noreferrer"> {{ results1[9] }}</a> </li>
+
+										
+						</ol>
+			  
+			  
+			</div>
+		</div>
+		
+
+		<div class="col">
+			<div class="container-md rounded bg-white w-100"  style="border:1px solid black">
+				<h2 style="text-align:center"><b> {{ stocksym2 }} News Stories </b></h2>
+				<hr>        
+					<div class="text-center">
+						<ol >
+
+							<li> <a href={{ Links3[0] }} target="_blank" rel="noopener noreferrer"> {{ results2[0] }}</a> </li>
+							<li> <a href={{ Links3[1] }} target="_blank" rel="noopener noreferrer"> {{ results2[1] }}</a> </li>
+							<li> <a href={{ Links3[2] }} target="_blank" rel="noopener noreferrer"> {{ results2[2] }}</a> </li>
+							<li> <a href={{ Links3[3] }} target="_blank" rel="noopener noreferrer"> {{ results2[3] }}</a> </li>
+							<li> <a href={{ Links3[4] }} target="_blank" rel="noopener noreferrer"> {{ results2[4] }}</a> </li>
+							<li> <a href={{ Links3[5] }} target="_blank" rel="noopener noreferrer"> {{ results2[5] }}</a> </li>
+							<li> <a href={{ Links3[6] }} target="_blank" rel="noopener noreferrer"> {{ results2[6] }}</a> </li>
+							<li> <a href={{ Links3[7] }} target="_blank" rel="noopener noreferrer"> {{ results2[7] }}</a> </li>
+							<li> <a href={{ Links3[8] }} target="_blank" rel="noopener noreferrer"> {{ results2[8] }}</a> </li>
+							<li> <a href={{ Links3[9] }} target="_blank" rel="noopener noreferrer"> {{ results2[9] }}</a> </li>
+
+						
+						</ol>
+					
+					</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<p class="text-center">
+  <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Side by Side Graph</a>
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">2 Lined Graph</button>
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">Both Graphs</button>
+</p>
+
+
+	<div class="row">
+	  <div class="col">
+		<div class="collapse multi-collapse" id="multiCollapseExample1">
+			<div class="parent-container d-flex">
+				<div class="container rounded bg-white w-50"  style="border:1px solid black">
+					<h2 style="text-align:center"><b>{{ stocksym1 }}</b></h2>
+					<hr>        
+					<div class="text-center">
+						<img src= comparison1graph.jpeg alt="alternatetext" class="img-fluid" alt="Responsive image"> 
+					</div>
+				</div>
+				
+				<div class="container rounded bg-white w-50"  style="border:1px solid black">
+					<h2 style="text-align:center"><b>{{ stocksym2 }}</b></h2>
+					<hr>        
+					<div class="text-center">
+						<img src= comparison2graph.jpeg alt="alternatetext" class="img-fluid" alt="Responsive image"> 
+					</div>
+				</div>
+			</div>
+		</div>
+	  </div>
+	</div>
+</div> 
+
+<br>
+
+<div class="d-flex justify-content-center">
+	<div class="row"> 
+	  <div class="col">
+		<div class="collapse multi-collapse" id="multiCollapseExample2" class="img-fluid" alt="Responsive image">
+			<div class="container rounded bg-white"  style="border:1px solid black">
+				<h2 style="text-align:center"><b>{{ stocksym1 }} vs {{ stocksym2 }}</b></h2>
+				<hr>        
+				<div class="text-center">
+					<img src= comparison3graph.jpeg alt="alternatetext" class="img-fluid" alt="Responsive image"> 
+				</div>
+			</div>	  
+		</div>
+	  </div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+
+  <meta charset="utf-8">
+  <meta Text="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="static/main.css">
+
+
+
+<style>
+
+</style>
+
+</head>
+
+<body>
+
+
+<div class="container">
+	<nav class="navbar navbar-expand-lg navbar-light bg-#60bde5">
+		<div class="navbar-nav mx-auto">
+		  <a class="nav-item nav-link" href="{{ url_for('index') }}">Home</a>
+		  <a class="nav-item nav-link" href="{{ url_for('timeline') }}">Timeline<span</a>
+		  <a class="nav-item nav-link" href="{{ url_for('previousdata') }}"><b>Previous Data</b></a>
+		  <a class="nav-item nav-link" href="{{ url_for('currentdata') }}">Current Data</a>
+		  <a class="nav-item nav-link" href="{{ url_for('comparison') }}">Comparison</a>
+		  <a class="nav-item nav-link" href="{{ url_for('interactivegraph') }}">Interactive Graph</a>
+		</div>
+	</nav>
+</div>
+
+
+<br>
+<h2 style = "text-align: center;">Previous Data</h2>
+
+<br>
+<br>
+<br>
+
+<form style = "text-align: center;" action="/previousdata" method = "POST">
+    <h4>Ticker Symbol <input type = "text" name = "StockCSV" maxlength="5" style="text-transform:uppercase"/></h4>
+	<h4>Stock Previous Days <input type = "text" name = "Stocktimeperiod" maxlength="3"/></h4>
+	
+
+	
+    <h4><input type = "submit" value = "Submit"/></h4>
+	
+</form>
+
+
+
+<br>
+<br>
+<br>
+
+<div class="container rounded bg-white"  style="border:1px solid black">
+	<h2 style="text-align:center"><b>Table</b></h2>
+	<hr>        
+	<div>
+	
+		    <table class="table table-responsive">
+                <h1>
+                <!--Displaying the converted table-->
+                     {% for table in tables %}
+                    <h2>{{titles[loop.index]}}</h2>
+                    {{ table | safe }}
+                    {% endfor %}
+                </h1>
+            </table>
+			
+	</div>
+	<br>
+</div>
+
+
+</body>
+</html>

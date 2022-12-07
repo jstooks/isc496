@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+
+  <meta charset="utf-8">
+  <meta Text="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="static/main.css">
+
+
+
+
+
+
+<style>
+
+.button {
+  border: none;
+  color: white;
+  padding: 18px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 80px;
+  cursor: pointer;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+}
+
+.button1 {background-color: #0000cc;}
+.button2 {background-color: #0000cc;} /* Blue */
+
+html { scroll-behavior: smooth; }
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+	<nav class="navbar navbar-expand-lg navbar-light bg-#60bde5">
+		<div class="navbar-nav mx-auto">
+		  <a class="nav-item nav-link" href="{{ url_for('index') }}"><b>Home</b></a>
+		  <a class="nav-item nav-link" href="{{ url_for('timeline') }}">Timeline</a>
+		  <a class="nav-item nav-link" href="{{ url_for('previousdata') }}">Previous Data</a>
+		  <a class="nav-item nav-link" href="{{ url_for('currentdata') }}">Current Data</a>
+		  <a class="nav-item nav-link" href="{{ url_for('comparison') }}">Comparison</a>
+		  <a class="nav-item nav-link" href="{{ url_for('interactivegraph') }}">Interactive Graph</a>
+		</div>
+	</nav>
+</div>
+
+<br>
+
+<h2 style = "text-align: center;">Stock Analysis</h2>
+
+<br>
+<br>
+<br>
+
+
+
+
+
+<script type="text/javascript"> 
+
+function favTutorial() {  
+var mylist = document.getElementById("myList");  
+  
+
+
+}  
+</script>  
+  
+<body>  
+
+
+
+
+<script>
+
+setTimeout(function() {
+  location.reload();
+}, 600000);
+
+</script>
+
+
+<div class="container rounded bg-white w-50"  style="border:1px solid black">
+
+	<h2 style="text-align:center"><b> Top News Stories </b></h2>
+
+	<hr>
+	
+		<ol >
+
+			<li> <a href={{ links[0] }} target="_blank" rel="noopener noreferrer"> {{ result[0] }}</a> </li>
+			<li> <a href={{ links[1] }} target="_blank" rel="noopener noreferrer"> {{ result[1] }}</a> </li>
+			<li> <a href={{ links[2] }} target="_blank" rel="noopener noreferrer"> {{ result[2] }}</a> </li>
+			<li> <a href={{ links[3] }} target="_blank" rel="noopener noreferrer"> {{ result[3] }}</a> </li>
+			<li> <a href={{ links[4] }} target="_blank" rel="noopener noreferrer"> {{ result[4] }}</a> </li>
+			<li> <a href={{ links[5] }} target="_blank" rel="noopener noreferrer"> {{ result[5] }}</a> </li>
+			<li> <a href={{ links[6] }} target="_blank" rel="noopener noreferrer"> {{ result[6] }}</a> </li>
+			<li> <a href={{ links[7] }} target="_blank" rel="noopener noreferrer"> {{ result[7] }}</a> </li>
+			<li> <a href={{ links[8] }} target="_blank" rel="noopener noreferrer"> {{ result[8] }}</a> </li>
+			<li> <a href={{ links[9] }} target="_blank" rel="noopener noreferrer"> {{ result[9] }}</a> </li>
+
+						
+		</ol>
+  
+  
+</div>
+
+<br>
+<br>
+<br>
+
+<div class="container rounded bg-white w-50"  style="border:1px solid black">
+	<h2 style="text-align:center"><b>Current Market Performance</b></h2>
+	<hr>        
+	<div class="text-center">
+		<img src= indexgraph.jpeg alt="alternatetext" class="img-fluid" alt="Responsive image"> 
+	</div>
+</div>
+
+
+
+
+
+
+
+</body>
+</html>

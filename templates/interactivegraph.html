@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+
+  <meta charset="utf-8">
+  <meta Text="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="static/main.css">
+
+
+
+
+
+
+<style>
+
+.button {
+  border: none;
+  color: white;
+  padding: 18px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 80px;
+  cursor: pointer;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+}
+
+.button1 {background-color: #0000cc;}
+.button2 {background-color: #0000cc;} /* Blue */
+
+html { scroll-behavior: smooth; }
+
+
+.area {
+    background:#ff0000;
+    display:block;
+    height:400px;
+    opacity:0;
+    position:absolute;
+    width:75px;
+	
+	
+	
+	 
+
+}
+
+#area7 {
+    left:500px;
+}
+#area6 {
+    left:425px;
+}
+#area5 {
+    left:350px;
+}
+#area4 {
+    left:275px;
+}
+#area3 {
+    left:200px;
+}
+#area2 {
+    left:125px;
+}
+#area1 {
+    left:50px;
+}
+
+#area1:hover, #area2:hover, #area3:hover, #area4:hover, #area5:hover, #area6:hover, #area7:hover {
+    opacity:0.2;
+}
+
+
+
+
+
+
+#graphcontainer {
+  display: inline-block;
+  
+  position:relative;
+  width: 100%; 
+  height: 400px;
+  
+  margin-left: 34%;
+ 
+
+}
+
+
+.areamap{
+
+ 
+  position:absolute;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+ 
+  
+  
+}
+
+
+
+</style>
+
+</head>
+
+<body>
+
+
+<div class="container">
+	<nav class="navbar navbar-expand-lg navbar-light bg-#60bde5">
+		<div class="navbar-nav mx-auto">
+		  <a class="nav-item nav-link" href="{{ url_for('index') }}">Home</b></a>
+		  <a class="nav-item nav-link" href="{{ url_for('timeline') }}">Timeline</a>
+		  <a class="nav-item nav-link" href="{{ url_for('previousdata') }}">Previous Data</a>
+		  <a class="nav-item nav-link" href="{{ url_for('currentdata') }}">Current Data</a>
+		  <a class="nav-item nav-link" href="{{ url_for('comparison') }}">Comparison</a>
+		  <a class="nav-item nav-link" href="{{ url_for('interactivegraph') }}"><b>Interactive Graph</b></a>
+		</div>
+	</nav>
+</div>
+
+<br>
+<h2 style = "text-align: center;">Interactive Graph</h2>
+
+<br>
+<br>
+<br>
+
+<form style = "text-align: center;" action="/interactivegraph" method = "POST">
+    <h4>Ticker Symbol <input type = "text" name = "Stock3" maxlength="5" style="text-transform:uppercase"/></h4>
+    <h4><input type = "submit" value = "Submit"/></h4>
+	
+</form>
+
+
+
+
+<script type="text/javascript"> 
+
+function favTutorial() {  
+var mylist = document.getElementById("myList");  
+  
+
+
+}  
+</script>  
+  
+<body>  
+
+<br>
+<br>
+
+
+
+
+
+<h2 style="text-align:center"><b>{{ interactivegraph_symbol }}</b></h2>               
+<div id = "graphcontainer" >	
+
+			<area id= "area1" class= "area" shape="rect" coords="50,15,125,310" href="/button0">
+			<area id= "area2" class= "area" shape="rect" coords="126,15,200,310" href="/button1">
+			<area id= "area3" class= "area" shape="rect" coords="201,15,275,310" href="/button2">
+			<area id= "area4" class= "area" shape="rect" coords="276,15,350,310" href="/button3">
+			<area id= "area5" class= "area" shape="rect" coords="351,15,425,310" href="/button4">
+			<area id= "area6" class= "area" shape="rect" coords="426,15,500,310" href="/button5">
+			<area id= "area7" class= "area" shape="rect" coords="501,15,575,310" href="/button6">  
+
+		    <img src= interactivegraphgraph.jpeg alt="alternatetext" style = "height: 400px; width: 600px;" usemap="#myMap">
+		
+</div>
+
+<br>
+<br>					
+
+<div class="d-flex justify-content-center">
+	<div class="row">
+		<div class="col">
+			<div class="container rounded bg-white"  style="border:1px solid black">
+
+				<h2 style="text-align:center"><b> Top News Stories </b></h2>
+
+					<hr>
+				
+					<ol >
+						
+						<li> <a  href = {{ newsLinksList[0] }}target="_blank" rel="noopener noreferrer"> {{ newsList[0] }}</a> </li>
+						<li> <a  href = {{ newsLinksList[1] }}target="_blank" rel="noopener noreferrer"> {{ newsList[1] }}</a> </li>
+						<li> <a  href = {{ newsLinksList[2] }}target="_blank" rel="noopener noreferrer"> {{ newsList[2] }}</a> </li>
+						<li> <a  href = {{ newsLinksList[3] }}target="_blank" rel="noopener noreferrer"> {{ newsList[3] }}</a> </li>
+						<li> <a  href = {{ newsLinksList[4] }}target="_blank" rel="noopener noreferrer"> {{ newsList[4] }}</a> </li>
+
+										
+					</ol>
+			  
+			  
+			</div>
+		</div>
+	</div>					
+</div>
+
+  
+  
+<br>
+<br>
+<br>
+<br>  
+
+
+
+
+</body>
+</html>

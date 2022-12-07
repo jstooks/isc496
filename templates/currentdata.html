@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+  <meta charset="utf-8">
+  <meta Text="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="static/main.css">
+
+
+
+
+<style>
+
+.button {
+  border: none;
+  color: white;
+  padding: 18px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 80px;
+  cursor: pointer;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+}
+
+.button1 {background-color: #0000cc;}
+.button2 {background-color: #0000cc;} /* Blue */
+
+html { scroll-behavior: smooth; }
+
+
+
+
+
+
+
+
+
+
+</style>
+
+</head>
+
+<body>
+
+
+
+<div class="container">
+	<nav class="navbar navbar-expand-lg navbar-light bg-#60bde5">
+		<div class="navbar-nav mx-auto">
+		  <a class="nav-item nav-link" href="{{ url_for('index') }}">Home</b></a>
+		  <a class="nav-item nav-link" href="{{ url_for('timeline') }}">Timeline</a>
+		  <a class="nav-item nav-link" href="{{ url_for('previousdata') }}">Previous Data</a>
+		  <a class="nav-item nav-link" href="{{ url_for('currentdata') }}"><b>Current Data</b></a>
+		  <a class="nav-item nav-link" href="{{ url_for('comparison') }}">Comparison</a>
+		  <a class="nav-item nav-link" href="{{ url_for('interactivegraph') }}">Interactive Graph</a>
+		</div>
+	</nav>
+</div>
+
+<br>
+
+
+<h2 style = "text-align: center;">Current Data</h2>
+
+<br>
+<br>
+
+<form style = "text-align: center;" action="/currentdata" method = "POST">
+    <h4>Ticker Symbol <input type = "text" name = "Stock" maxlength="5" style="text-transform:uppercase"/></h4>
+    <h4><input type = "submit" value = "Submit"/></h4>
+	
+</form>
+
+
+<br>
+<br>
+
+
+
+<div class="parent-container d-flex">
+	<div class="row">
+		<div class="col">
+			<div class="container rounded bg-white"  style="border:1px solid black">
+
+				<h2 style="text-align:center"><b> Top News Stories </b></h2>
+
+					<hr>
+				
+						<ol >
+						
+							<li> <a href={{ Links1[0] }} target="_blank" rel="noopener noreferrer"> {{ results[0] }}</a> </li>
+							<li> <a href={{ Links1[1] }} target="_blank" rel="noopener noreferrer"> {{ results[1] }}</a> </li>
+							<li> <a href={{ Links1[2] }} target="_blank" rel="noopener noreferrer"> {{ results[2] }}</a> </li>
+							<li> <a href={{ Links1[3] }} target="_blank" rel="noopener noreferrer"> {{ results[3] }}</a> </li>
+							<li> <a href={{ Links1[4] }} target="_blank" rel="noopener noreferrer"> {{ results[4] }}</a> </li>
+							<li> <a href={{ Links1[5] }} target="_blank" rel="noopener noreferrer"> {{ results[5] }}</a> </li>
+							<li> <a href={{ Links1[6] }} target="_blank" rel="noopener noreferrer"> {{ results[6] }}</a> </li>
+							<li> <a href={{ Links1[7] }} target="_blank" rel="noopener noreferrer"> {{ results[7] }}</a> </li>
+							<li> <a href={{ Links1[8] }} target="_blank" rel="noopener noreferrer"> {{ results[8] }}</a> </li>
+							<li> <a href={{ Links1[9] }} target="_blank" rel="noopener noreferrer"> {{ results[9] }}</a> </li>
+
+										
+						</ol>
+			  
+			  
+			</div>
+		</div>
+		</div>
+
+		<div class="col">
+			<div class="container rounded bg-white"  style="border:1px solid black">
+				<h2 style="text-align:center"><b> {{ stocksym }} </b></h2>
+				<hr>        
+					<div class="text-center">
+						<img src= currentdatagraph.jpeg alt="alternatetext" class="img-fluid" alt="Responsive image"> 
+					</div>
+			</div>
+	</div>
+</div>
+
+
+</body>
+</html>
