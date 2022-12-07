@@ -176,7 +176,8 @@ def stockcsv(tickersymbol, timeperiod):
 #-------------------------------------
 
 #--------FLASK-------------------
-app = Flask(__name__)
+
+app = Flask(__name__) #app needs to match wsgi from app import app
 nav = Navigation(app)
 #-------------------------------------
 
