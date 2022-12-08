@@ -1,21 +1,38 @@
 #--------IMPORTS-----------
-import collections
-
-import matplotlib.pyplot as plt
-import pandas as pd
 import requests
-import yfinance as yf
-from flask import Flask, render_template
-from flask import request
-from flask import send_file
-from flask_navigation import Navigation
+#import time
+#import threading
+#from datetime import datetime
+#import sys
 
-collections.MutableSequence = collections.abc.MutableSequence
-collections.Iterable = collections.abc.Iterable
+import yfinance as yf
+#from yahoofinancials import YahooFinancials
+
+from flask import Flask, render_template
+from flask_navigation import Navigation
+from flask import send_file
+#from flask import Response,request
+from flask import Response,request
+
+#from matplotlib import pyplot as plt
+import matplotlib.pyplot as plt
+#from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
+#from matplotlib.figure import Figure
+
+#import numpy as np
+#import csv
+import pandas as pd
+#import sqlite3
+import collections
+#collections.MutableSequence = collections.abc.MutableSequence
+#collections.Iterable = collections.abc.Iterable
+#import io
 from io import BytesIO
+#import numpy as np
+#import base64
 import PIL
 
-
+#from flask_bootstrap import Bootstrap
 #-------------------------------------
 
 
@@ -510,6 +527,7 @@ newsLinks = {}
 @app.route('/interactivegraph', methods = ['POST', 'GET'])
 def interactivegraph():
 
+    import traceback
     global interactivegraph_symbol
     global stocktimes
     global newsDict
